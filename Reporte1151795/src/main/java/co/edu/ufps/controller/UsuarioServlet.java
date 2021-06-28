@@ -50,15 +50,6 @@ public class UsuarioServlet extends HttpServlet {
 			case "insert":
 				insert(request, response);
 				break;
-			/*case "delete":
-				delete(request, response);
-				break;
-			case "edit":
-				showEditForm(request, response);
-				break;
-			case "update":
-				update(request, response);
-				break;*/
 			case "showL":
 				showLogin(request, response);
 				break;
@@ -140,7 +131,7 @@ public class UsuarioServlet extends HttpServlet {
 		}
 
 		if(existe) {
-			dispatcher = request.getRequestDispatcher("usuario/token.jsp");
+			dispatcher = request.getRequestDispatcher("usuario/dashboard.jsp");
 		}else {
 			dispatcher = request.getRequestDispatcher("index.jsp");
 			String mensaje="No está registrado";
