@@ -76,13 +76,13 @@ public class Usuario implements Serializable {
 		this.rolBean = rolBean;
 	}
 
-	public Usuario(String usuario, String email, String pass, int state, Rol rolBean) {
+	public Usuario(String usuario, String email, String pass, int state, int role) {
 		super();
 		this.usuario = usuario;
 		this.email = email;
 		this.pass = pass;
 		this.state = state;
-		this.rolBean = rolBean;
+		this.role = role;
 	}
 
 }

@@ -17,6 +17,7 @@ import co.edu.ufps.dao.RolDao;
 import co.edu.ufps.dao.UsuarioDao;
 import co.edu.ufps.entities.Rol;
 import co.edu.ufps.entities.Usuario;
+import co.edu.ufps.util.Email;
 
 
 
@@ -76,8 +77,8 @@ public class UsuarioServlet extends HttpServlet {
 
 	private void showNewForm(HttpServletRequest request,HttpServletResponse response ) throws ServletException, IOException{
 
-		List<Rol> listaRol = newR.list();
-		request.setAttribute("listaRol", listaRol);
+		/*List<Rol> listaRol = newR.list();
+		request.setAttribute("listaRol", listaRol);*/
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/indexP.jsp");
 		dispatcher.forward(request,response);
@@ -89,15 +90,33 @@ public class UsuarioServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		
-		int idR = Integer.parseInt(request.getParameter("rol"));
-		Rol  rol = (Rol) newR.find(idR);
-		/*Rol rol = new Rol();
-		rol.setId(2);*/
+		/*int idR = Integer.parseInt(request.getParameter("rol"));
+		Rol  rol = (Rol) newR.find(idR);*/
 		
 		//short state = Short.parseShort(request.getParameter("state"));
 
-		Usuario user = new Usuario (usuario, email, pass, 0, rol);	
+		Usuario user = new Usuario (usuario, email, pass, 0, 2);	
 		
+		// emisor, clave
+		Email e = new Email("papitasfritasf37@gmail.com","samLLORA");
+		
+		//receptor del email
+		String receptor = email;
+		
+		//url a redirigir
+		String url="http://localhost:8080/Reporte1151795/UsuarioServlet?action=showL";
+		
+		//asunto
+		String asunto="Proceso de activacion de cuenta ";
+		
+		String mensaje = "Estimado <strong>"+email+"</strong>,"+ 
+						 "<p>Se le ha creado su cuenta con exito, bienvenido,"+
+						 "a continuación le daremos las credenciales para ingresar en la plataforma:</p>"+
+				         "<p><b>Usuario: </b>"+usuario+"</p>"+
+				         "<br><b>Contraseña: </b>"+pass+"</b>"+
+				         "<br>Atravez del siguiente <a href='"+url+"'>Enlace</a>"+" podrá realizar la activacion de su cuenta.</p>";
+		
+		e.sendEmail(receptor, asunto, mensaje);
 		
 		newU.insert(user);		
 		this.list(request, response);
