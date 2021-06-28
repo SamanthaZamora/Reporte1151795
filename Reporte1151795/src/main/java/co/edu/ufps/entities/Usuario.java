@@ -29,7 +29,9 @@ public class Usuario implements Serializable {
 
 	private String pass;
 
-	private short state;
+	private int state;
+	
+	private int role;
 
 
 	//bi-directional many-to-one association to Connectiontoken
@@ -74,7 +76,7 @@ public class Usuario implements Serializable {
 		this.rolBean = rolBean;
 	}
 
-	public Usuario(String usuario, String email, String pass, short state, Rol rolBean) {
+	public Usuario(String usuario, String email, String pass, int state, Rol rolBean) {
 		super();
 		this.usuario = usuario;
 		this.email = email;

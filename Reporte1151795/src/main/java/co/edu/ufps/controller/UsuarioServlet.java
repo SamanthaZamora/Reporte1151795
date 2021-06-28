@@ -92,9 +92,9 @@ public class UsuarioServlet extends HttpServlet {
 		int idR = Integer.parseInt(request.getParameter("rol"));
 		Rol  rol = (Rol) newR.find(idR);
 		
-		short state = Short.parseShort(request.getParameter("state"));
+		//short state = Short.parseShort(request.getParameter("state"));
 
-		Usuario user = new Usuario (usuario, email, pass, state, rol);	
+		Usuario user = new Usuario (usuario, email, pass, 0, rol);	
 		
 		
 		newU.insert(user);		
@@ -106,7 +106,7 @@ public class UsuarioServlet extends HttpServlet {
 		List<Usuario> listPer  = newU.list();
 		request.setAttribute( "listPer", listPer);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("persona/listP.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/listP.jsp");
 		dispatcher.forward(request,response);
 	}
 	
