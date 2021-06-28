@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import co.edu.ufps.dao.GenericDao;
 import co.edu.ufps.dao.RolDao;
 import co.edu.ufps.dao.UsuarioDao;
-import co.edu.ufps.entities.Rol;
 import co.edu.ufps.entities.Usuario;
 import co.edu.ufps.util.Email;
 
@@ -59,13 +58,13 @@ public class UsuarioServlet extends HttpServlet {
 				break;
 			case "update":
 				update(request, response);
-				break;
-			case "newL":
+				break;*/
+			case "showL":
 				showLogin(request, response);
 				break;
 			case "login":
 				login(request, response);
-				break;*/
+				break;
 			default:
 				list(request, response);
 				break;
@@ -76,10 +75,6 @@ public class UsuarioServlet extends HttpServlet {
 	}
 
 	private void showNewForm(HttpServletRequest request,HttpServletResponse response ) throws ServletException, IOException{
-
-		/*List<Rol> listaRol = newR.list();
-		request.setAttribute("listaRol", listaRol);*/
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/indexP.jsp");
 		dispatcher.forward(request,response);
 	}
@@ -120,6 +115,38 @@ public class UsuarioServlet extends HttpServlet {
 		
 		newU.insert(user);		
 		this.list(request, response);
+	}
+	
+	private void showLogin(HttpServletRequest request,HttpServletResponse response ) throws ServletException, IOException{
+    	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/login.jsp");
+		dispatcher.forward(request,response);
+	}
+
+	private void login(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		
+		List<Usuario> listU = newU.list();
+
+		RequestDispatcher dispatcher = null;
+		String usuario = request.getParameter("usuario");
+		String pass = request.getParameter("pass");
+		
+		boolean existe = false;
+		
+		for (Usuario user : listU) {
+			if (user.getUsuario().equals(usuario) && user.getPass().equals(pass)) {
+				existe = true;
+			}
+		}
+
+		if(existe) {
+			dispatcher = request.getRequestDispatcher("usuario/token.jsp");
+		}else {
+			dispatcher = request.getRequestDispatcher("index.jsp");
+			String mensaje="No está registrado";
+			request.setAttribute("mensaje", mensaje);
+		}
+		dispatcher.forward(request, response);
 	}
 	
 	private void list(HttpServletRequest request,HttpServletResponse response ) throws ServletException, SQLException, IOException{

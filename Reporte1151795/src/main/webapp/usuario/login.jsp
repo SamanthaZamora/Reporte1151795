@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<!-- JSTL PREFIJO C -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +32,7 @@
 		<div class="card">
 			<div class="card-body">
 				<c:if test="${usuario == null}">
-					<form action="UsuarioServlet?action=showL" method="post">
+					<form action="UsuarioServlet?action=login" method="post">
 				</c:if>
 
 				<caption>

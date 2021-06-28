@@ -33,7 +33,7 @@
 				</div>
 				<br>
 				<div class="opcion">
-					<a href="VotanteServlet?action=list" style="text-decoration: none" ><p class="op_nombre">Registro de </p></a>
+					<a href="UsuarioServlet?action=showL" style="text-decoration: none" ><p class="op_nombre">Login </p></a>
 				</div>
 				<br>
 				<div class="opcion">
