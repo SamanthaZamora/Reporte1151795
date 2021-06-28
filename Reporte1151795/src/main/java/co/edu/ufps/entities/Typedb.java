@@ -56,4 +56,13 @@ public class Typedb implements Serializable {
 		return connectiontoken;
 	}
 
+	public Typedb(String aditional, String description, String driver) {
+		super();
+		this.aditional = aditional;
+		this.description = description;
+		this.driver = driver;
+	}
+	
+	
+
 }
