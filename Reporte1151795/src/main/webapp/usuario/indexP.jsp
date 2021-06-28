@@ -53,7 +53,7 @@
 					<input type="hidden" name="id" value="<c:out value='${usuario.id}' />" />
 				</c:if>
 
-				
+				<br>
 				<fieldset class="form-group">
 					<label>Nombre de Usuario</label> <input type="text"
 						value="<c:out value='${usuario.usuario}' />" class="form-control"
@@ -73,11 +73,11 @@
 				</fieldset>
 	
 				<fieldset class="form-group">
-					<label>Rol</label> <br> <select name="eleccion"
+					<label>Rol</label> <br> <select name="rol"
 						class="rounded form-control">
 						<option value="">Roles vigentes</option>
-						<c:forEach var="rol" items="${listaRol}">
-							<option value="${rol.id}">${rol.descripcion}</option>
+						<c:forEach var="rolBean" items="${listaRol}">
+							<option value="${rolBean.id}">${rolBean.descripcion}</option>
 						</c:forEach>
 					</select>
 				</fieldset>
