@@ -113,7 +113,7 @@ public class UsuarioServlet extends HttpServlet {
 						 "<p>Se le ha creado su cuenta con exito, bienvenido,"+
 						 "a continuación le daremos las credenciales para ingresar en la plataforma:</p>"+
 				         "<p><b>Usuario: </b>"+usuario+"</p>"+
-				         "<br><b>Contraseña: </b>"+pass+"</b>"+
+				         "<b>Contraseña: </b>"+pass+"</b>"+
 				         "<br>Atravez del siguiente <a href='"+url+"'>Enlace</a>"+" podrá realizar la activacion de su cuenta.</p>";
 		
 		e.sendEmail(receptor, asunto, mensaje);

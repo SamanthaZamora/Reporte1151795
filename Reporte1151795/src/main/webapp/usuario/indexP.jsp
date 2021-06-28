@@ -71,16 +71,6 @@
 						value="<c:out value='${usuario.pass}' />" class="form-control"
 						name="pass" required="required">
 				</fieldset>
-	
-				<fieldset class="form-group">
-					<label>Rol</label> <br> <select name="rol"
-						class="rounded form-control">
-						<option value="">Roles vigentes</option>
-						<c:forEach var="rolBean" items="${listaRol}">
-							<option value="${rolBean.id}">${rolBean.descripcion}</option>
-						</c:forEach>
-					</select>
-				</fieldset>
 
 				<br>
 				<div class="d-grid gap-2 col-3 mx-auto">
