@@ -67,7 +67,7 @@
 							<td><c:out value="${token.port}" /></td>
 							<td><c:out value="${token.usuario.usuario}" /></td>
 							<td><c:out value="${token.state}" /></td>
-							<td><c:out value="${token.typedb.descrption}" /></td>
+							<td><c:out value="${token.typedb.description}" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>
