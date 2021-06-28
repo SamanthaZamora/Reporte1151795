@@ -15,8 +15,6 @@ import co.edu.ufps.dao.GenericDao;
 import co.edu.ufps.dao.TypedbDao;
 import co.edu.ufps.entities.Typedb;
 
-
-
 @WebServlet("/TypedbServlet")
 public class TypedbServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
