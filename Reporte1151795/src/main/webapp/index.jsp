@@ -20,7 +20,7 @@
     
     <nav class="navegacion">
         <a class="navegacion__enlace navegacion__enlace--activo" href="index.jsp" style="text-decoration: none">Inicio</a>
-        <a class="navegacion__enlace navegacion__enlace--activo" href="admin.jsp" style="text-decoration: none">Seguimiento</a>
+        <a class="navegacion__enlace navegacion__enlace--activo" href="#" style="text-decoration: none">Seguimiento</a>
         <a class="navegacion__enlace navegacion__enlace--activo" href="#" style="text-decoration: none">Ayuda</a>
     </nav>
 	<br>
@@ -37,7 +37,7 @@
 				</div>
 				<br>
 				<div class="opcion">
-					<a href="VotanteServlet?action=list" style="text-decoration: none" ><p class="op_nombre">Registro de </p></a>
+					<a href="VotanteServlet?action=list" style="text-decoration: none" ><p class="op_nombre">Registro de Typedb</p></a>
 				</div>
 			</div>
 		</div>
