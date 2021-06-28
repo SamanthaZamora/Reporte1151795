@@ -53,23 +53,21 @@
 						<th>Usuario </th>					
 						<th>State </th>
 						<th>Type </th>
-						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="votante" items="${listaVotante}">
+					<c:forEach var="token" items="${listTk}">
 						<tr>
-							<td><c:out value="${votante.id}" /></td>
-							<td><c:out value="${votante.nombre}" /></td>							
-							<td><c:out value="${votante.email}" /></td>
-							<td><c:out value="${votante.tipodocumentoBean.descripcion}" /></td>
-							<td><c:out value="${votante.documento}" /></td>
-							<td><c:out value="${votante.eleccionBean.nombre}" /></td>
-							<td>
-								<a href="<%=request.getContextPath()%>/VotanteServlet?action=edit&id=${votante.id}">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; 
-								<a href="VotanteServlet?action=delete&id=${votante.id}">Delete</a>
-							</td>
+							<td><c:out value="${token.id}" /></td>
+							<td><c:out value="${token.host}" /></td>							
+							<td><c:out value="${token.userdb}" /></td>
+							<td><c:out value="${token.pass}" /></td>
+							<td><c:out value="${token.db}" /></td>
+							<td><c:out value="${token.token}" /></td>
+							<td><c:out value="${token.port}" /></td>
+							<td><c:out value="${token.usuario.usuario}" /></td>
+							<td><c:out value="${token.state}" /></td>
+							<td><c:out value="${token.typedb.descrption}" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>

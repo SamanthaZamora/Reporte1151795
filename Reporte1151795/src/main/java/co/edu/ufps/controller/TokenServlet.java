@@ -96,8 +96,8 @@ public class TokenServlet extends HttpServlet {
 	
 	private void list(HttpServletRequest request,HttpServletResponse response ) throws ServletException, SQLException, IOException{
 		
-		List<Typedb> listTyp  = newType.list();
-		request.setAttribute( "listT", listTyp);
+		List<Connectiontoken> listTk  = newToken.list();
+		request.setAttribute( "listTk", listTk);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/tokList.jsp");
 		dispatcher.forward(request,response);
