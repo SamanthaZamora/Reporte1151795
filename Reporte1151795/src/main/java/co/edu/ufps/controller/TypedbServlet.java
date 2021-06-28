@@ -13,10 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.edu.ufps.dao.GenericDao;
 import co.edu.ufps.dao.TypedbDao;
-import co.edu.ufps.dao.UsuarioDao;
 import co.edu.ufps.entities.Typedb;
-import co.edu.ufps.entities.Usuario;
-import co.edu.ufps.util.Email;
+
 
 
 @WebServlet("/TypedbServlet")
