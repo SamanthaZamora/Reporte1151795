@@ -37,6 +37,10 @@
 				</div>
 				<br>
 				<div class="opcion">
+					<a href="TokenServlet?action=insert" style="text-decoration: none" ><p class="op_nombre">Registro de Tokens</p></a>
+				</div>
+				<br>
+				<div class="opcion">
 					<a href="TypedbServlet?action=new" style="text-decoration: none" ><p class="op_nombre">Registro de Typedb</p></a>
 				</div>
 			</div>

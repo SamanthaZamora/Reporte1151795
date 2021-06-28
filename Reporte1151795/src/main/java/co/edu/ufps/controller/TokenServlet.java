@@ -42,6 +42,9 @@ public class TokenServlet extends HttpServlet {
 
 		try {
 			switch (action) {
+			case "new":
+				showNewForm(request, response);
+				break;
 			case "insert":
 				insert(request, response);
 				break;
@@ -54,6 +57,18 @@ public class TokenServlet extends HttpServlet {
 		}
 	}
 
+	private void showNewForm(HttpServletRequest request,HttpServletResponse response ) throws ServletException, IOException{
+
+		List<Usuario> listaU = newUsuario.list();
+		request.setAttribute("listaU", listaU);
+		
+		List<Typedb> listaT = newType.list();
+		request.setAttribute("listaT", listaT);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/token.jsp");
+		dispatcher.forward(request,response);
+	}
+	
 	private void insert(HttpServletRequest request,HttpServletResponse response ) throws ServletException, SQLException, IOException{
 		
 		String host = request.getParameter("host");
@@ -76,13 +91,13 @@ public class TokenServlet extends HttpServlet {
 		Connectiontoken tokenC = new Connectiontoken(db, host, pass, port, state, token, userdb, type, user);
 		
 		newType.insert(tokenC);		
-		this.list(request, response);
+		request.getRequestDispatcher("usuario/token.jsp").forward(request, response);
 	}
 	
 	private void list(HttpServletRequest request,HttpServletResponse response ) throws ServletException, SQLException, IOException{
 		
-		List<Typedb> listT  = newType.list();
-		request.setAttribute( "listT", listT);
+		List<Typedb> listTyp  = newType.list();
+		request.setAttribute( "listT", listTyp);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request,response);

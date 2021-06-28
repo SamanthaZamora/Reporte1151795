@@ -24,7 +24,6 @@
     <nav class="navegacion">
         <a class="navegacion__enlace navegacion__enlace--activo" href="index.jsp" style="text-decoration: none">Inicio</a>
         <a class="navegacion__enlace navegacion__enlace--activo" href="#" style="text-decoration: none">Seguimiento</a>
-        <a class="navegacion__enlace navegacion__enlace--activo" href="<%=request.getContextPath()%>/UsuarioServlet?action=list" style="text-decoration: none">Usuarios</a>
     </nav>
 
 	<br>
@@ -32,19 +31,14 @@
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
-				<c:if test="${connectiontoken != null}">
-					<form action="UsuarioServlet?action=update" method="post">
-				</c:if>
 
 				<c:if test="${connectiontoken == null}">
-					<form action="UsuarioServlet?action=insert" method="post">
+					<form action="TokenServlet?action=insert" method="post">
 				</c:if>
 
 				<caption>
 					<h2>
-						<c:if test="${connectiontoken != null}"> Editar usuario </c:if>
-
-						<c:if test="${connectiontoken == null}"> Registro  usuario  </c:if>
+						<c:if test="${connectiontoken == null}"> Registro  Token  </c:if>
 					</h2>
 				</caption>
 
@@ -84,12 +78,36 @@
 				</fieldset>
 				
 				<fieldset class="form-group">
-					<label>Port</label> <input type="password"
+					<label>Port</label> <input type="text"
 						value="<c:out value='${connectiontoken.port}' />" class="form-control"
 						name="port" required="required" placeholder="Puerto para la conexion"  >
 				</fieldset>
 				
-
+				<fieldset class="form-group">
+					<label>State</label> <input type="text"
+						value="<c:out value='${connectiontoken.state}' />" class="form-control"
+						name="state" required="required">
+				</fieldset>
+				
+				<fieldset class="form-group">
+					<label>Tipo de Base de Datos</label> <br> <select name="rol"
+						class="rounded form-control">
+						<option value="">Tipos registrados</option>
+						<c:forEach var="type" items="${listaT}">
+							<option value="${type.id}">${type.description}</option>
+						</c:forEach>
+					</select>
+				</fieldset>
+				
+				<fieldset class="form-group">
+					<label>Usuario</label> <br> <select name="rol"
+						class="rounded form-control">
+						<option value="">Usuarios registrados</option>
+						<c:forEach var="usuario" items="${listaU}">
+							<option value="${usuario.id}">${usuario.usuario}</option>
+						</c:forEach>
+					</select>
+				</fieldset>
 				<br>
 				<div class="d-grid gap-2 col-3 mx-auto">
 					<button type="submit" class="btn boton" >Guardar</button>
