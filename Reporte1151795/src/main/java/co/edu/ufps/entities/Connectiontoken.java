@@ -16,6 +16,8 @@ import java.util.List;
 @Entity
 @NamedQuery(name="Connectiontoken.findAll", query="SELECT c FROM Connectiontoken c")
 public class Connectiontoken implements Serializable {
+	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -28,9 +30,9 @@ public class Connectiontoken implements Serializable {
 
 	private String pass;
 
-	private short port;
+	private int port;
 
-	private short state;
+	private int state;
 
 	private String token;
 
@@ -50,6 +52,19 @@ public class Connectiontoken implements Serializable {
 	@OneToMany(mappedBy="connectiontoken")
 	private List<Reporte> reportes;
 
+	public Connectiontoken(String db, String host, String pass, int port, int state, String token, String userdb,
+			Typedb typedb, Usuario usuario) {
+		super();
+		this.db = db;
+		this.host = host;
+		this.pass = pass;
+		this.port = port;
+		this.state = state;
+		this.token = token;
+		this.userdb = userdb;
+		this.typedb = typedb;
+		this.usuario = usuario;
+	}
 	
 	public List<Reporte> getReportes() {
 		return this.reportes;

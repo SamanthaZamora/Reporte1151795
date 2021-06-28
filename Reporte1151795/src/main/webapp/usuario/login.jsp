@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ELECIONES UFPS</title>
+<title>SISTEMA REPORTE UFPS</title>
 <link rel="stylesheet" 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
@@ -65,7 +65,7 @@
 	
 	<br>
 	<footer class="footer">
-        <p class="footer__texto"> UFPS 2021 - 2025</p>
+        <p class="footer__texto"> UFPS 2021 </p>
     </footer>
 </body>
 </html>
