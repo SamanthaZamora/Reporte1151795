@@ -99,7 +99,7 @@ public class TokenServlet extends HttpServlet {
 		List<Connectiontoken> listTk  = newToken.list();
 		request.setAttribute( "listTk", listTk);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/tokList.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("usuario/listT.jsp");
 		dispatcher.forward(request,response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
