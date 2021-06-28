@@ -29,8 +29,6 @@ public class Usuario implements Serializable {
 
 	private String pass;
 
-	private int role;
-
 	private short state;
 
 
@@ -43,6 +41,7 @@ public class Usuario implements Serializable {
 	@JoinColumn(name="rol")
 	private Rol rolBean;
 
+	
 	
 
 	public List<Connectiontoken> getConnectiontokens() {
@@ -72,6 +71,15 @@ public class Usuario implements Serializable {
 	}
 
 	public void setRolBean(Rol rolBean) {
+		this.rolBean = rolBean;
+	}
+
+	public Usuario(String usuario, String email, String pass, short state, Rol rolBean) {
+		super();
+		this.usuario = usuario;
+		this.email = email;
+		this.pass = pass;
+		this.state = state;
 		this.rolBean = rolBean;
 	}
 
